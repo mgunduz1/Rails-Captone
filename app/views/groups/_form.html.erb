@@ -1,0 +1,40 @@
+<%= form_with(model: group, local: true, class: "form-group") do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.radio_button :avatar, 'credit-card' %>  <i class="far fa-credit-card"></i> <br />
+    <%= form.radio_button :avatar, 'snowflake' %> <i class="far fa-snowflake"></i>  <br />
+    <%= form.radio_button :avatar, 'hospital' %> <i class="far fa-hospital"></i> <br />
+    <%= form.radio_button :avatar, 'futbol' %> <i class="far fa-futbol"></i> <br />
+    <%= form.radio_button :avatar, 'sun' %> <i class="far fa-sun"></i> <br />
+    <%= form.radio_button :avatar, 'hourglass' %> <i class="far fa-hourglass"></i> <br />
+    <%= form.radio_button :avatar, 'building' %> <i class="far fa-building"></i><br />
+  </div>
+
+
+ 
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
