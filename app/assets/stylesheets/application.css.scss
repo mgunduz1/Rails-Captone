@@ -15,3 +15,18 @@
 */
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+
+body {
+    max-height: 100vh;
+    max-width: 100vw;
+    z-index: 0;
+}
+
+
+.xxx {
+    z-index: 2;
+    position: absolute;
+    height: calc(100vh - 56px);
+    width: 100vw;
+}
