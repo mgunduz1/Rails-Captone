@@ -1,27 +1,52 @@
 
-<h1>Transactions</h1>
+<h4 class="text-center fw-bold mt-3">Group Transactions</h4>
 
 
 <ul class="list-group">
     <% @transactions.each do |transaction| %>
     <%= link_to transaction_path(transaction), class:"text-decoration-none" do %>
     <li class="list-group-item mb-2">
-    <div class='row'>
+    <div class='row gx-1'>
 
     <div class='col-3 p-0'>
-    <%= icon('far', transaction.group.avatar, class: 'fa-5x' ) %>
+    <%= icon('far', transaction.group.avatar, class: 'fa-5x i-color' ) %>
     </div>
-    <div class='col-7'>
-    <h6><%= transaction.name %></h6>
-    <span><%= transaction.created_at %></span>
+    <div class='col-7 d-flex flex-column justify-content-between p-0'>
+    <p class="fs-3 mt-1"><%= transaction.name.truncate(23) %></p>
+    <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
     </div>
     <div class='col-2 p-0 align-self-center'>
-    <p class="text-center"><%= transaction.amount %>$</p>
+    <p class="text-center price-color fs-4 fw-bolder"><%= transaction.amount %>$</p>
     </div>
         </div>
     </li>
     <% end %>
-    <br>
+
+    <% end %>
+</ul>
+
+
+<h4 class="text-center fw-bold">External Transactions</h4>
+
+<ul class="list-group">
+    <% @external.each do |transaction| %>
+    <%= link_to transaction_path(transaction), class:"text-decoration-none" do %>
+    <li class="list-group-item mb-2">
+    <div class='row gx-1'>
+
+    <div class='col-3 p-0'>
+    </div>
+    <div class='col-7 d-flex flex-column justify-content-between p-0'>
+    <p class="fs-3 mt-1"><%= transaction.name.truncate(23) %></p>
+    <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
+    </div>
+    <div class='col-2 p-0 align-self-center'>
+    <p class="text-center price-color fs-4 fw-bolder"><%= transaction.amount %>$</p>
+    </div>
+        </div>
+    </li>
+    <% end %>
+
     <% end %>
 </ul>
 

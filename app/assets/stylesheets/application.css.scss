@@ -16,15 +16,23 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
+$main-dark: #434b54;
+$main-green: #5fb523;
 
 body {
     max-height: 100vh;
     max-width: 100vw;
     z-index: 0;
+    color: $main-dark;
 }
 
 .bg-color { background-color: #3778c2; }
+
+.i-color { color: #3778c2; }
+
+.price-color { color: $main-green; }
+
+.list-group-item { color: $main-dark; }
 
 .btn-color {
 background-color: #3778c2;
@@ -33,8 +41,24 @@ box-shadow: 0 0 0 .25rem rgba(55, 120, 194, .5);
 }
 
 .create-btn {
-    background-color: #5fb523;
+    background-color: $main-green;
     z-index: 0;
+}
+.back-btn {
+    background-color: $main-dark;
+    z-index: 0;
+}
+
+.edit-btn {
+    background-color: $main-green;
+    color: white;
+    width: 40vw;
+}
+
+.destroy-btn {
+    background-color: #e4394a;
+    color: white;
+    width: 40vw;
 }
 
 .xxx {
