@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
+<h4 class="text-center fw-bold mt-3">Group Transactions</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Avatar</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+<ul class="list-group">
     <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= icon('far', group.avatar ) %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <%= link_to group_path(group), class:"text-decoration-none" do %>
+    <li class="list-group-item mb-2 px-1">
+    <div class='row gx-0 py-3'>
+    <div class='col-3 p-0'>
+    <%= icon('far', group.avatar, class: 'fa-5x i-color' ) %>
+    </div>
+    <div class='col-6 d-flex flex-column justify-content-between p-0'>
+    <p class="fs-3 mt-1"><%= group.name.truncate(15) %></p>
+    <small class="text-muted"><%= group.created_at.strftime("%a, %e %b %Y") %></small>
+    </div>
+    <div class='col-3 p-0 align-self-center'>
+    <p class="text-center price-color fs-6 fw-lighter"><span class="fs-3 fw-bolder"><%= group.transactions.count %></span><br />Transactions</p>
+    </div>
+        </div>
+    </li>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+    <% end %>
+</ul>
 
-<%= link_to 'New Group', new_group_path %>
+<div style="height: 15vh;">
+</div>
+
+<%= link_to new_group_path, class:"text-decoration-none" do %>
+<footer class="footer fixed-bottom create-btn py-3">
+      <div class="container d-flex align-items-center justify-content-center">
+        <p class="text-white fw-bolder fs-2"> Create New Group </p>
+      </div>
+</footer>
+<% end %>
+
+
