@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
 
          has_many :transactions
+         validates_uniqueness_of :name, :email
 end

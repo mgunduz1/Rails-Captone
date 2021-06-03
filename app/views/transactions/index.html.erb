@@ -25,9 +25,10 @@
     <% end %>
 </ul>
 
-
-
-
-
- 
-<%= link_to 'New Transaction', new_transaction_path %>
+<%= link_to new_transaction_path, class:"text-decoration-none" do %>
+<footer class="footer fixed-bottom create-btn py-3">
+      <div class="container d-flex align-items-center justify-content-center">
+        <p class="text-white fw-bolder fs-2"> Create New Transaction </p>
+      </div>
+</footer>
+<% end %>
