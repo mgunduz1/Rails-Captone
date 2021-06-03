@@ -5,8 +5,8 @@
 <ul class="list-group">
     <% @transactions.each do |transaction| %>
     <%= link_to transaction_path(transaction), class:"text-decoration-none" do %>
-    <li class="list-group-item mb-2">
-    <div class='row gx-1'>
+    <li class="list-group-item mb-2 px-1">
+    <div class='row gx-0'>
 
     <div class='col-3 p-0'>
     <%= icon('far', transaction.group.avatar, class: 'fa-5x i-color' ) %>
@@ -26,13 +26,13 @@
 </ul>
 
 
-<h4 class="text-center fw-bold">External Transactions</h4>
+<h4 class="text-center fw-bold mt-4 mb-2">External Transactions</h4>
 
 <ul class="list-group">
     <% @external.each do |transaction| %>
     <%= link_to transaction_path(transaction), class:"text-decoration-none" do %>
-    <li class="list-group-item mb-2">
-    <div class='row gx-1'>
+    <li class="list-group-item mb-2 px-1">
+    <div class='row gx-0'>
 
     <div class='col-3 p-0'>
     </div>

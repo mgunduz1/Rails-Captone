@@ -2,7 +2,7 @@
 
 <ul class="list-group mt-5">
     <li class="list-group-item">
-    <div class='row py-3 gx-1'>
+    <div class='row py-4 gx-1'>
     <div class='col-3 p-0'>
      <% unless @transaction.group_id.nil? %>
     <%= icon('far', @transaction.group.avatar, class: 'fa-5x i-color' ) %>
@@ -23,6 +23,7 @@
 <%= link_to 'Edit', edit_transaction_path(@transaction), class:"btn edit-btn" %>
 <%= link_to 'Destroy', transaction_path, class:"btn destroy-btn", method: :delete, data: { confirm: 'Are you sure?' }%>
 </div>
+
  <%= link_to transactions_path, class:"text-decoration-none" do %>
 <footer class="footer fixed-bottom back-btn py-3">
       <div class="container d-flex align-items-center justify-content-center">
