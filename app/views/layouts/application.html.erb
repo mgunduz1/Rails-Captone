@@ -14,14 +14,14 @@
   </head>
     <body>
     <% if user_signed_in? %>
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-color">
   <div class="container-fluid justify-content-between">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     
       <div class="btn-group">
-  <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+  <button type="button" class="btn btn-main text-white dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
     <%= current_user.name %>
   </button>
   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
@@ -34,7 +34,7 @@
   </div>
 </nav>
 <div class="collapse" id="navbarToggleExternalContent" >
-  <div class="bg-dark p-4 xxx">
+  <div class="bg-color p-4 xxx">
 
   </div>
 </div>
