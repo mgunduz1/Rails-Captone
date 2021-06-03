@@ -35,7 +35,13 @@
 </nav>
 <div class="collapse" id="navbarToggleExternalContent" >
   <div class="bg-color p-4 xxx">
-
+  <p class="fs-2 fw-bold mb-4 nav-mgin"><%= link_to "All Transactions", transactions_path, class:"text-decoration-none text-white"%></p>
+  <hr>
+    <p class="fs-2 fw-bold my-4"><%= link_to "Group Transactions", groups_path, class:"text-decoration-none text-white"%></p>
+  <hr>
+      <p class="fs-2 fw-bold my-4"><%= link_to "External Transactions", transactions_path, class:"text-decoration-none text-white"%></p>
+  <hr>
+        <p class="fs-2 fw-bold mt-4"><%= link_to "All Groups", groups_path, class:"text-decoration-none text-white"%></p>
   </div>
 </div>
 <% end %>
