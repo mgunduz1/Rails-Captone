@@ -15,8 +15,8 @@
     <p class="fs-3 mt-1"><%= transaction.name.truncate(23) %></p>
     <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
     </div>
-    <div class='col-2 p-0 align-self-center'>
-    <p class="text-center price-color fs-4 fw-bolder"><%= transaction.amount %>$</p>
+    <div class='col-2 p-0 d-flex align-items-end'>
+    <p class="text-center price-color mb-0 fs-4 fw-bolder">$<span class="fw-lighter"><%= transaction.amount %></span></p>
     </div>
         </div>
     </li>
@@ -40,8 +40,8 @@
     <p class="fs-3 mt-1"><%= transaction.name.truncate(23) %></p>
     <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
     </div>
-    <div class='col-2 p-0 align-self-center'>
-    <p class="text-center price-color fs-4 fw-bolder"><%= transaction.amount %>$</p>
+    <div class='col-2 p-0 d-flex align-items-end'>
+    <p class="text-center price-color mb-0 fs-4 fw-bolder">$<span class="fw-lighter"><%= transaction.amount %></span></p>
     </div>
         </div>
     </li>
