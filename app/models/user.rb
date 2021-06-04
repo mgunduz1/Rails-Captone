@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
-         has_many :transactions, dependent: :destroy
-         validates_uniqueness_of :name, :email
+  has_many :transactions, dependent: :destroy
+  validates_uniqueness_of :name, :email
 end
