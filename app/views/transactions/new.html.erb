@@ -1,5 +1,15 @@
-<h1>New Transaction</h1>
+<h1 class="text-center fw-bold my-4">New Transaction</h1>
 
 <%= render 'form', transaction: @transaction %>
 
-<%= link_to 'Back', transactions_path %>
+<div style="height: 15vh;">
+</div>
+
+
+<%= link_to transactions_path, class:"text-decoration-none" do %>
+<footer class="footer fixed-bottom back-btn py-3">
+      <div class="container d-flex align-items-center justify-content-center">
+        <p class="text-white fw-bolder fs-2"> Back to Transactions </p>
+      </div>
+</footer>
+<% end %>

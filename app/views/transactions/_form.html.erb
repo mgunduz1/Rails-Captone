@@ -11,29 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field d-flex flex-column justify-content-center w-75 mx-auto">
+    <p class="mb-1 text-center i-color fw-bolder"><%= form.label :name %></p>
+    <%= form.text_field :name, class:"bg-input text-white" %>
   </div>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
+  <div class="field d-flex flex-column justify-content-center w-75 mx-auto">
+    <p class="mb-1 text-center i-color fw-bolder"><%= form.label :amount %></p>
+    <%= form.number_field :amount, placeholder: "4 figures maximum", class:"bg-input text-white" %>
   </div>
 
-  <div class="field">
-    <%= form.hidden_field :user_id, value: current_user.id %>
-  </div>
+<div class='row w-75 mx-auto mt-3'>
 
-  <div class="field">
+
+  <div class="field col-6">
+    <p class="fw-bolder i-color mb-0 mt-2">Group of the Transaction</p>
     <% @groups.each do |g| %>
-    <%= form.radio_button :group_id, g.id %><%= icon('far', g.avatar ) %><br />
+    <%= form.radio_button :group_id, g.id, class:"mb-3" %> <%= icon('far', g.avatar, class:"fa-2x" ) %><br />
     <% end %>
-    <input type="radio"> External Spending
+    <input type="radio"> <span class="fw-bold">External</span>
    </div>
 
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions col-6 d-flex align-items-center">
+    <%= form.submit "SUBMIT", class: "btn btn-color my-auto text-white fw-bolder p-4"%>
   </div>
+  </div>
+    <div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
 <% end %>
+
+
