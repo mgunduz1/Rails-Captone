@@ -18,6 +18,11 @@ class TransactionsController < ApplicationController
     @total_amount = @transactions.all.sum("amount")
   end
 
+  def external_transactions
+    @transactions = Transaction.external.where(user_id: current_user.id).all
+    @total_amount = @transactions.all.sum("amount")
+  end
+
   # GET /transactions/new
   def new
     @groups = Group.all
