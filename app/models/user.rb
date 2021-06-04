@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-         has_many :transactions
+         has_many :transactions, dependent: :destroy
          validates_uniqueness_of :name, :email
 end
