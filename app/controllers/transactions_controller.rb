@@ -13,6 +13,11 @@ class TransactionsController < ApplicationController
   def show
   end
 
+  def group_transactions
+    @transactions = Transaction.grouped.where(user_id: current_user.id).all
+    @total_amount = @transactions.all.sum("amount")
+  end
+
   # GET /transactions/new
   def new
     @groups = Group.all
