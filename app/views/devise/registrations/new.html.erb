@@ -1,34 +1,38 @@
-<h2>Sign up</h2>
+
+<body class='bg-color'>
+<div class='container mx-auto mt-5'>
+<hr class="text-white py-1">
+<h1 class="text-center fs-1 text-white ">REGISTER</h1>
+<hr class="text-white py-1">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  <div class="field mt-4 d-flex flex-column">
+    <%= f.label :email, class:"text-white fs-6 fw-bolder text-center" %>
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", class:"mx-auto bg-input text-white" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field mt-4 d-flex flex-column">
+    <%= f.label :name, class:"text-white fs-6 fw-bolder text-center" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"mx-auto bg-input text-white" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="field mt-4 d-flex flex-column">
+    <%= f.label :password, class:"text-white fs-6 fw-bolder text-center" %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"mx-auto bg-input text-white" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field mt-4 d-flex flex-column">
+    <%= f.label :password_confirmation, class:"text-white fs-6 fw-bolder text-center" %> 
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"mx-auto bg-input text-white" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="actions mt-4 d-flex justify-content-center">
+    <%= f.submit "REGISTER", class:"btn edit-btn fw-bolder" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<p class="text-center text-white my-2">OR</p>
+<p class="text-center"><%= link_to 'LOGIN', new_user_session_path, class:"btn edit-btn fw-bolder" %></p>
+</div>
+</body>
