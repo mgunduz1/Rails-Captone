@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.grouped.where(user_id: current_user.id).all
     @external = Transaction.external.where(user_id: current_user.id).all
+    @total_amount = Transaction.where(user_id: current_user.id).all.sum("amount")
   end
 
   # GET /transactions/1 or /transactions/1.json

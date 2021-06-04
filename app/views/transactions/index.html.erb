@@ -1,4 +1,9 @@
 
+<div class='total d-flex justify-content-around text-white p-0 m-0 fw-bolder'>
+<p class="my-auto">My transactions total:</p>
+<p class="my-auto">$<%= @total_amount %></p>
+</div>
+
 <h4 class="text-center fw-bold mt-3">Group Transactions</h4>
 
 
@@ -12,11 +17,11 @@
     <%= icon('far', transaction.group.avatar, class: 'fa-5x i-color' ) %>
     </div>
     <div class='col-7 d-flex flex-column justify-content-between p-0'>
-    <p class="fs-3 mt-1"><%= transaction.name.truncate(23) %></p>
+    <p class="fs-3 mt-1"><%= transaction.name.truncate(15) %></p>
     <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
     </div>
     <div class='col-2 p-0 d-flex align-items-end'>
-    <p class="text-center price-color mb-0 fs-4 fw-bolder">$<span class="fw-lighter"><%= transaction.amount %></span></p>
+    <p class="text-center price-color mb-0 fs-4 "><span class="fw-bolder">$</span><%= transaction.amount %></p>
     </div>
         </div>
     </li>

@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   # GET /groups/1 or /groups/1.json
   def show
     @transactions = Transaction.where(group_id: @group.id)
+    @group_total = Transaction.where(group_id: @group.id).sum("amount")
   end
 
   # GET /groups/new

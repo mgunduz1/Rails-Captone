@@ -6,16 +6,17 @@
     <% @groups.each do |group| %>
     <%= link_to group_path(group), class:"text-decoration-none" do %>
     <li class="list-group-item mb-2 px-2">
-    <div class='row gx-0 py-3'>
-    <div class='col-3 p-0'>
+    <div class='row gx-0 py-1'>
+    <div class='col-3 p-0 my-auto'>
     <%= icon('far', group.avatar, class: 'fa-5x i-color' ) %>
     </div>
-    <div class='col-6 d-flex flex-column justify-content-between p-0'>
-    <p class="fs-3 mt-1"><%= group.name.truncate(15) %></p>
+    <div class='col-6 d-flex flex-column justify-content-around p-0'>
+    <p class="fs-3"><%= group.name.truncate(15) %></p>
     <small class="text-muted"><%= group.created_at.strftime("%a, %e %b %Y") %></small>
     </div>
-    <div class='col-3 p-0 align-self-center'>
-    <p class="text-center price-color fs-6 fw-lighter"><span class="fs-3 fw-bolder"><%= group.transactions.count %></span><br />Transactions</p>
+    <div class='col-3 p-0 d-flex flex-column justify-content-between'>
+    <p class="text-center i-color fs-6 fw-lighter mb-1"><span class="fs-4 fw-bold"><%= group.transactions.count %></span><br />Transactions</p>
+        <p class="text-center price-color fs-6 fw-lighter mb-0"><span class="fs-4 fw-bold">$<%= group.transactions.sum(:amount) %></span><br />Total</p>
     </div>
         </div>
     </li>

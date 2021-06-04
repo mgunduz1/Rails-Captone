@@ -41,10 +41,13 @@ border-color: $main-blue;
 box-shadow: 0 0 0 .25rem rgba(55, 120, 194, .5);
 }
 
-.create-btn {
+.create-btn, .total {
     background-color: $main-green;
     z-index: 0;
 }
+
+.total { height: 6vh; }
+
 .back-btn {
     background-color: $main-dark;
     z-index: 0;

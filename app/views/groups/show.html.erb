@@ -1,15 +1,16 @@
 <ul class="list-group">
     <li class="list-group-item mb-2 px-2">
-    <div class='row gx-0 py-4'>
-    <div class='col-3 p-0'>
+    <div class='row gx-0 py-1'>
+    <div class='col-3 p-0 my-auto'>
     <%= icon('far', @group.avatar, class: 'fa-5x i-color' ) %>
     </div>
-    <div class='col-6 d-flex flex-column justify-content-between p-0'>
-    <p class="fs-3 mt-1 fw-bold"><%= @group.name %></p>
+    <div class='col-6 d-flex flex-column justify-content-around p-0'>
+    <p class="fs-3 fw-bold"><%= @group.name %></p>
     <small class="text-muted"><%= @group.created_at.strftime("%a, %e %b %Y") %></small>
     </div>
-    <div class='col-3 p-0 align-self-center'>
-    <p class="text-center price-color fs-6 fw-lighter"><span class="fs-3 fw-bolder"><%= @group.transactions.count %></span><br />Transactions</p>
+    <div class='col-3 p-0 d-flex flex-column justify-content-between'>
+    <p class="text-center i-color fs-6 fw-lighter mb-1"><span class="fs-4 fw-bold"><%= @group.transactions.count %></span><br />Transactions</p>
+        <p class="text-center price-color fs-6 fw-lighter mb-0"><span class="fs-4 fw-bold">$<%= @group_total %></span><br />Total</p>
     </div>
         </div>
     </li>
@@ -32,7 +33,7 @@
     <p class="text-center my-auto i-color fs-6 fw-lighter"><span class="fw-bolder">Creator:</span><br /><%= transaction.user.name %></p>
     </div>
     <div class='col-7 d-flex flex-column justify-content-between p-0'>
-    <p class="fs-3 mt-1"><%= transaction.name.truncate(20) %></p>
+    <p class="fs-3 mt-1"><%= transaction.name.truncate(15) %></p>
     <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
     </div>
     <div class='col-2 p-0 d-flex align-items-end'>
