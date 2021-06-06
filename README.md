@@ -7,6 +7,9 @@
 ## Live Demo of the Project
 [RIGHT HERE](https://quiet-springs-96074.herokuapp.com/)
 
+## Video Presentation
+https://www.loom.com/share/475b5ac4f9274e1fafdfc03e6caa118e
+
 
 ## Prerequisites
 - Ruby (+3)
