@@ -17,10 +17,12 @@ class TransactionsController < ApplicationController
     @total_amount = @transactions.all.sum('amount')
   end
 
+  # rubocop:disable Layout/LineLength
   def stats
     @statistic = Transaction.select('user_id, sum(amount) as total, avg(amount) as average, count(user_id) as number').group('user_id').order('total DESC')
   end
 
+  # rubocop:enable Layout/LineLength
   def external_transactions
     @transactions = Transaction.external.where(user_id: current_user.id)
     @total_amount = @transactions.all.sum('amount')
