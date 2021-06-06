@@ -27,27 +27,41 @@ body {
     color: $main-dark;
 }
 
-.bg-color { background-color: $main-blue; }
-.bg-input { background-color: $main-dark; }
-
-.i-color { color: $main-blue; }
-
-.price-color { color: $main-green; }
-
-.list-group-item { color: $main-dark; }
-
-.btn-color {
-background-color: $main-blue;
-border-color: $main-blue;
-box-shadow: 0 0 0 .25rem rgba(55, 120, 194, .5);
+.bg-color {
+    background-color: $main-blue;
 }
 
-.create-btn, .total {
+.bg-input {
+    background-color: $main-dark;
+}
+
+.i-color {
+    color: $main-blue;
+}
+
+.price-color {
+    color: $main-green;
+}
+
+.list-group-item {
+    color: $main-dark;
+}
+
+.btn-color {
+    background-color: $main-blue;
+    border-color: $main-blue;
+    box-shadow: 0 0 0 .25rem rgba(55, 120, 194, .5);
+}
+
+.create-btn,
+.total {
     background-color: $main-green;
     z-index: 0;
 }
 
-.total { height: 6vh; }
+.total {
+    height: 6vh;
+}
 
 .back-btn {
     background-color: $main-dark;
@@ -71,11 +85,13 @@ box-shadow: 0 0 0 .25rem rgba(55, 120, 194, .5);
     position: absolute;
     height: calc(100vh - 56px);
     width: 100vw;
-    color: #ffffff;
+    color: #fff;
     text-align: center;
 }
 
-.nav-mgin { margin-top: 8vh; }
+.nav-mgin {
+    margin-top: 8vh;
+}
 
 th {
     background-color: $main-green;
