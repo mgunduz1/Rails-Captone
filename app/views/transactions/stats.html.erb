@@ -1,0 +1,33 @@
+<h2 class="text-center fw-bold my-4">User Statistics</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th class="border-end w-25">Name</th>
+      <th class="border-end w-25">Number of Transactions</th>
+      <th class="border-end w-25">Average amount per Transaction</th>
+      <th class="w-25 pr-0">Transactions Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @statistic.each do |s| %>
+      <tr class="border-bottom border-light border-3">
+        <td><%= User.find_by(id: s.user_id).name %></td>
+        <td><%= s.number %></td>
+        <td><%= s.average %></td>
+        <td><%= s.total %></td>
+      </tr>
+     <% end %>
+  </tbody>
+</table>
+
+<div style="height: 15vh;">
+</div>
+
+ <%= link_to transactions_path, class:"text-decoration-none" do %>
+<footer class="footer fixed-bottom back-btn py-3">
+      <div class="container d-flex align-items-center justify-content-center">
+        <p class="text-white fw-bolder fs-2"> Back to Transactions </p>
+      </div>
+</footer>
+<% end %>

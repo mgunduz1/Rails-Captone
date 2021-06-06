@@ -4,8 +4,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.grouped.where(user_id: current_user.id).all
-    @external = Transaction.external.where(user_id: current_user.id).all
+    @transactions = Transaction.grouped.where(user_id: current_user.id).order('created_at DESC')
+    @external = Transaction.external.where(user_id: current_user.id).order('created_at DESC')
     @total_amount = Transaction.where(user_id: current_user.id).all.sum('amount')
   end
 
@@ -13,12 +13,16 @@ class TransactionsController < ApplicationController
   def show; end
 
   def group_transactions
-    @transactions = Transaction.grouped.where(user_id: current_user.id).all
+    @transactions = Transaction.grouped.where(user_id: current_user.id)
     @total_amount = @transactions.all.sum('amount')
   end
 
+  def stats
+    @statistic = Transaction.select('user_id, sum(amount) as total, avg(amount) as average, count(user_id) as number').group('user_id').order('total DESC')
+  end
+
   def external_transactions
-    @transactions = Transaction.external.where(user_id: current_user.id).all
+    @transactions = Transaction.external.where(user_id: current_user.id)
     @total_amount = @transactions.all.sum('amount')
   end
 
