@@ -6,14 +6,14 @@ class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.grouped.where(user_id: current_user.id).order('created_at DESC')
     @external = Transaction.external.where(user_id: current_user.id).order('created_at DESC')
-    @total_amount = Transaction.where(user_id: current_user.id).all.sum('amount')
+    @total_amount = Transaction.includes(:user).where(user_id: current_user.id).sum('amount')
   end
 
   # GET /transactions/1 or /transactions/1.json
   def show; end
 
   def group_transactions
-    @transactions = Transaction.grouped.where(user_id: current_user.id)
+    @transactions = Transaction.includes(:user).grouped.where(user_id: current_user.id)
     @total_amount = @transactions.all.sum('amount')
   end
 
@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
 
   # rubocop:enable Layout/LineLength
   def external_transactions
-    @transactions = Transaction.external.where(user_id: current_user.id)
+    @transactions = Transaction.includes(:user).external.where(user_id: current_user.id)
     @total_amount = @transactions.all.sum('amount')
   end
 
