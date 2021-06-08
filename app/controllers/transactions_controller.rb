@@ -34,13 +34,12 @@ class TransactionsController < ApplicationController
   end
 
   # GET /transactions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /transactions or /transactions.json
   def create
     @transaction = current_user.transactions.build(transaction_params)
-  
+
     if @transaction.save
       redirect_to @transaction
     else

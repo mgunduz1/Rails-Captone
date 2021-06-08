@@ -21,14 +21,13 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit; end
 
-  
   def create
     @group = Group.new(group_params)
 
     if @group.save
       redirect_to @group
     else
-      render :new 
+      render :new
     end
   end
 
