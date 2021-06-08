@@ -1,4 +1,4 @@
-<%= form_with(model: transaction) do |form| %>
+<%= form_with(model: transaction, local: true, class:"form-group") do |form| %>
   <% if transaction.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
@@ -26,7 +26,7 @@
 
   <div class="field col-6">
     <p class="fw-bolder i-color mb-0 mt-2">Group of the Transaction</p>
-    <% @groups.each do |g| %>
+    <% Group.all.each do |g| %>
     <%= form.radio_button :group_id, g.id, class:"mb-3" %> <%= icon('far', g.avatar, class:"fa-2x" ) %><br />
     <% end %>
     <input type="radio"> <span class="fw-bold">External</span>

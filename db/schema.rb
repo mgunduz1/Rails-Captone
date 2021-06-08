@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2021_05_31_123137) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "amount", null: false
+    t.string "name"
+    t.integer "amount"
     t.bigint "user_id", null: false
     t.bigint "group_id"
     t.datetime "created_at", precision: 6, null: false

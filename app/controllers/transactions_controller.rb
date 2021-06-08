@@ -30,27 +30,21 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
-    @groups = Group.all
     @transaction = Transaction.new
   end
 
   # GET /transactions/1/edit
   def edit
-    @groups = Group.all
   end
 
   # POST /transactions or /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
-
-    respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
-      end
+    @transaction = current_user.transactions.build(transaction_params)
+  
+    if @transaction.save
+      redirect_to @transaction
+    else
+      render :new
     end
   end
 
