@@ -1,0 +1,60 @@
+<ul class="list-group">
+    <li class="list-group-item mb-2 px-2">
+    <div class='row gx-0 py-1'>
+    <div class='col-3 p-0 my-auto'>
+    <%= icon('far', @group.avatar, class: 'fa-5x i-color' ) %>
+    </div>
+    <div class='col-6 d-flex flex-column justify-content-around p-0'>
+    <p class="fs-3 fw-bold"><%= @group.name %></p>
+    <small class="text-muted"><%= @group.created_at.strftime("%a, %e %b %Y") %></small>
+    </div>
+    <div class='col-3 p-0 d-flex flex-column justify-content-between'>
+    <p class="text-center i-color fs-6 fw-lighter mb-1"><span class="fs-4 fw-bold"><%= @group.transactions.count %></span><br />Transactions</p>
+        <p class="text-center price-color fs-6 fw-lighter mb-0"><span class="fs-4 fw-bold">$<%= @group_total %></span><br />Total</p>
+    </div>
+        </div>
+    </li>
+</ul>
+
+<div class='row d-flex justify-content-evenly mx-0 mt-2'>
+<%= link_to 'Edit Group', edit_group_path(@group), class:"btn edit-btn" %>
+<%= link_to 'Destroy Group', group_path, class:"btn destroy-btn", method: :delete, data: { confirm: 'Are you sure?' }%>
+</div>
+<hr>
+<h1 class="text-center fw-bold mt-5 mb-3">Transactions</h1>
+
+
+<ul class="list-group">
+    <% @transactions.each do |transaction| %>
+    <%= link_to transaction_path(transaction), class:"text-decoration-none" do %>
+    <li class="list-group-item mb-2 px-1">
+    <div class='row gx-0'>
+    <div class='col-3 p-0 align-self-center'>
+    <p class="text-center my-auto i-color fs-6 fw-lighter"><span class="fw-bolder">Creator:</span><br /><%= transaction.user.name %></p>
+    </div>
+    <div class='col-7 d-flex flex-column justify-content-between p-0'>
+    <p class="fs-3 mt-1"><%= transaction.name.truncate(15) %></p>
+    <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
+    </div>
+    <div class='col-2 p-0 d-flex align-items-end'>
+    <p class="text-center price-color mb-0 fs-4 fw-bolder">$<span class="fw-lighter"><%= transaction.amount %></span></p>
+    </div>
+        </div>
+    </li>
+    <% end %>
+
+    <% end %>
+</ul>
+
+<div style="height: 15vh;">
+</div>
+
+<%= link_to groups_path, class:"text-decoration-none" do %>
+<footer class="footer fixed-bottom back-btn py-3">
+      <div class="container d-flex align-items-center justify-content-center">
+        <p class="text-white fw-bolder fs-2"> Back to Groups </p>
+      </div>
+</footer>
+<% end %>
+
+

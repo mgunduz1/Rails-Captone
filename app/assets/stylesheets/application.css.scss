@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$main-dark: #434b54;
+$main-green: #5fb523;
+$main-blue: #3778c2;
+
+body {
+  max-height: 100vh;
+  max-width: 100vw;
+  z-index: 0;
+  color: $main-dark;
+}
+
+.bg-color {
+  background-color: $main-blue;
+}
+
+.bg-input {
+  background-color: $main-dark;
+}
+
+.i-color {
+  color: $main-blue;
+}
+
+.price-color {
+  color: $main-green;
+}
+
+.list-group-item {
+  color: $main-dark;
+}
+
+.btn-color {
+  background-color: $main-blue;
+  border-color: $main-blue;
+  box-shadow: 0 0 0 0.25rem rgba(55, 120, 194, 0.5);
+}
+
+.create-btn,
+.total {
+  background-color: $main-green;
+  z-index: 0;
+}
+
+.total {
+  height: 6vh;
+}
+
+.back-btn {
+  background-color: $main-dark;
+  z-index: 0;
+}
+
+.edit-btn {
+  background-color: $main-green;
+  color: white;
+  width: 40vw;
+}
+
+.destroy-btn {
+  background-color: #e4394a;
+  color: white;
+  width: 40vw;
+}
+
+.side-nav {
+  z-index: 2;
+  position: absolute;
+  height: calc(100vh - 56px);
+  width: 100vw;
+  color: #fff;
+  text-align: center;
+}
+
+.nav-mgin {
+  margin-top: 8vh;
+}
+
+th {
+  background-color: $main-green;
+  color: $main-dark;
+  font-weight: 200;
+  text-align: center;
+  height: 15vh;
+  padding: 0 !important;
+}
+
+td {
+  text-align: center;
+  color: $main-blue;
+}

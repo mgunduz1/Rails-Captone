@@ -1,0 +1,43 @@
+
+<div class='total d-flex justify-content-around text-white p-0 m-0 fw-bolder'>
+<p class="my-auto">My external transactions total:</p>
+<p class="my-auto">$<%= @total_amount %></p>
+</div>
+
+<h4 class="text-center fw-bold mt-3">External Transactions</h4>
+
+
+<ul class="list-group">
+    <% @transactions.each do |transaction| %>
+    <%= link_to transaction_path(transaction), class:"text-decoration-none" do %>
+    <li class="list-group-item mb-2 px-1">
+    <div class='row gx-0'>
+
+    <div class='col-3 p-0'>
+    </div>
+    <div class='col-7 d-flex flex-column justify-content-between p-0'>
+    <p class="fs-3 mt-1"><%= transaction.name.truncate(15) %></p>
+    <small class="text-muted"><%= transaction.created_at.strftime("%a, %e %b %Y") %></small>
+    </div>
+    <div class='col-2 p-0 d-flex align-items-end'>
+    <p class="text-center price-color mb-0 fs-4 "><span class="fw-bolder">$</span><%= transaction.amount %></p>
+    </div>
+        </div>
+    </li>
+    <% end %>
+
+    <% end %>
+</ul>
+
+
+
+<div style="height: 15vh;">
+</div>
+
+<%= link_to new_transaction_path, class:"text-decoration-none" do %>
+<footer class="footer fixed-bottom create-btn py-3">
+      <div class="container d-flex align-items-center justify-content-center">
+        <p class="text-white fw-bolder fs-2"> Create New Transaction </p>
+      </div>
+</footer>
+<% end %>

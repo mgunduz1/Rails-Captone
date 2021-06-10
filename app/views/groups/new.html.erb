@@ -1,0 +1,15 @@
+<h1 class="text-center fw-bold my-4">New Group</h1>
+
+<%= render 'form', group: @group %>
+
+<div style="height: 15vh;">
+</div>
+
+
+<%= link_to groups_path, class:"text-decoration-none" do %>
+<footer class="footer fixed-bottom back-btn py-3">
+      <div class="container d-flex align-items-center justify-content-center">
+        <p class="text-white fw-bolder fs-2"> Back to Groups </p>
+      </div>
+</footer>
+<% end %>

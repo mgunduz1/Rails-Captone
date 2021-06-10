@@ -5,12 +5,50 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
+    <body>
+    <% if user_signed_in? %>
+<nav class="navbar navbar-dark bg-color">
+  <div class="container-fluid justify-content-between">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+      <div class="btn-group">
+  <button type="button" class="btn btn-main text-white dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+    <%= current_user.name %>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+    <li><%= link_to 'All Transactions', transactions_path, class:"dropdown-item" %></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><%= link_to 'Delete Account', user_registration_path, method: :delete, class:"dropdown-item" %></li>
+  </ul>
+</div>
+        
+  </div>
+</nav>
+<div class="collapse" id="navbarToggleExternalContent" >
+  <div class="bg-color p-4 side-nav">
+  <p class="fs-2 fw-bold mb-4 nav-mgin"><%= link_to "All Transactions", transactions_path, class:"text-decoration-none text-white"%></p>
+  <hr>
+    <p class="fs-2 fw-bold my-4"><%= link_to "Group Transactions", group_transactions_path, class:"text-decoration-none text-white"%></p>
+  <hr>
+      <p class="fs-2 fw-bold my-4"><%= link_to "External Transactions", external_transactions_path, class:"text-decoration-none text-white"%></p>
+  <hr>
+        <p class="fs-2 fw-bold my-4"><%= link_to "All Groups", groups_path, class:"text-decoration-none text-white"%></p>
+          <hr>
+        <p class="fs-2 fw-bold mt-4"><%= link_to "Statistics", statistics_path, class:"text-decoration-none text-white"%></p>
+  </div>
+</div>
+<% end %>
     <%= yield %>
   </body>
 </html>

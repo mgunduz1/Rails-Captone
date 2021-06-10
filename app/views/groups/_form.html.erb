@@ -1,0 +1,36 @@
+<%= form_with(model: group, local: true, class: "form-group") do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field d-flex flex-column justify-content-center w-75 mx-auto">
+    <p class="mb-1 text-center i-color fw-bolder"><%= form.label :name %></p>
+    <%= form.text_field :name, class:"bg-input text-white" %>
+  </div>
+
+
+<div class='row w-75 mx-auto mt-3'>
+
+  <div class="field col-6">
+    <p class="fw-bolder i-color mb-0 mt-2">Group <%= form.label :avatar %></p>
+    <%= form.radio_button :avatar, 'snowflake' %> <i class="far fa-snowflake fa-2x"></i>  <br />
+    <%= form.radio_button :avatar, 'hospital' %> <i class="far fa-hospital fa-2x"></i> <br />
+    <%= form.radio_button :avatar, 'futbol' %> <i class="far fa-futbol fa-2x"></i> <br />
+    <%= form.radio_button :avatar, 'sun' %> <i class="far fa-sun fa-2x"></i> <br />
+    <%= form.radio_button :avatar, 'hourglass' %> <i class="far fa-hourglass fa-2x"></i> <br />
+    <%= form.radio_button :avatar, 'building' %> <i class="far fa-building fa-2x"></i><br />
+  </div>
+
+  <div class="actions col-6 d-flex align-items-center">
+    <%= form.submit "SUBMIT", class: "btn btn-color my-auto text-white fw-bolder p-4"%>
+  </div>
+  </div>
+<% end %>

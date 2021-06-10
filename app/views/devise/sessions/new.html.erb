@@ -1,0 +1,27 @@
+<body class='bg-color'>
+<div class='container mx-auto mt-5'>
+<hr class="text-white py-1">
+<h1 class="text-center fs-1 text-white ">LOGIN</h1>
+<hr class="text-white py-1">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+  <div class="field mt-4 d-flex flex-column">
+    <%= f.label :email, class:"text-white fs-6 fw-bolder text-center" %>
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", class:"mx-auto bg-input text-white" %>
+  </div>
+
+  <div class="field mt-4 d-flex flex-column">
+    <%= f.label :password, class:"text-white fs-6 fw-bolder text-center" %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"mx-auto bg-input text-white" %>
+  </div>
+
+
+  <div class="actions mt-5 d-flex justify-content-center">
+    <%= f.submit "LOGIN", class:"btn edit-btn fw-bolder" %>
+  </div>
+<% end %>
+<p class="text-center text-white my-3">OR</p>
+<p class="text-center"><%= link_to 'REGISTER', new_user_registration_path, class:"btn edit-btn fw-bolder" %></p>
+</div>
+</body>
